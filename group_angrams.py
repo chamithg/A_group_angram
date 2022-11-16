@@ -5,24 +5,29 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         
-        strs.sort()
+        # strs.sort()
         output =[]
         
-        j = 0
-        while j < len(strs)-1:
-            if not output:
-                output.append([strs[j]])
-                j+=1
-            for i,item in enumerate(output):
-                print(i , item[0], strs[j])
-                if sorted(item[0]) == sorted(strs[j]) :
-                    item.append(strs[j])
-                    j+=1
+        for each in strs:
+            
+            x = len(output)
+            i = 0
+            while i < x  or x ==0:
+                if not output:
+                    output.append(each)
+                    i +=1
                 else:
-                    if i == len(output)-1 or output == []:
-                        output.append([strs[j]])
-                        j+=1
-                            
+                    print(i)
+                    if "".join(sorted(each))== sorted(output[i][0]):
+                        output[i].append(each)
+                        i +=1
+                    if "".join(sorted(each))!= sorted(output[i][0]) and i == len(output)-1:
+                        output.append(each)
+                        i +=1
+                
+                x = len(output)   
+            
+            
             
         return output  
         
