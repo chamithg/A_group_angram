@@ -8,15 +8,18 @@ class Solution(object):
         """
 
         out = collections.defaultdict(list)
-        final = []
+        # final = []
         for each in strs:
             out[("".join(sorted(each)))].append(each)
             
-            
-        for key,value in out.items():
-            final.append(value)
         
-        return final
+        # without defining the final array, there is a much faster solution.
+        # 
+        return [i for i in out.values()]   
+        # for key,value in out.items():
+        #     final.append(value)
+        
+        # return final
         
         
         
